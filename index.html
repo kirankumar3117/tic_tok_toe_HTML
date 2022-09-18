@@ -46,9 +46,28 @@
 
 var show=document.createElement("p");
 
-document.body.append(show);
+
 
 show.setAttribute("class","showAll");
+
+var butt=document.createElement("button");
+butt.innerHTML="reset";
+butt.style.color="white";
+butt.style.marginLeft="41.5%";
+butt.style.fontSize="18px";
+butt.style.marginTop="2%";
+butt.style.cursor="pointer"
+butt.onmouseover =function(){
+    this.style.color="red";
+}
+butt.onmouseout =function(){
+    this.style.color="blue";
+}
+butt.addEventListener("click",function(){
+    window.location.reload();
+})
+
+document.body.append(butt,show);
 
 var show_style=document.querySelector(".showAll").style;
 
@@ -56,7 +75,7 @@ var show_style=document.querySelector(".showAll").style;
 
 show_style.color="white";
 show_style.marginLeft="42%";
-show_style.marginTop="5%";
+show_style.marginTop="2%";
 show_style.fontSize="30px";
 
 
