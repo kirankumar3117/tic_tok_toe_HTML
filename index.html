@@ -303,66 +303,87 @@ function fun(m){
 
     // adding x to array 
 
-    if(win==false && loose==false && draw==false){
+    var adding0_flag=false;
 
-    if(m==1){
+    if(win==false && loose==false && draw==false && c[m-1].innerHTML!="X" && c[m-1]!="0"){
+
+    if(m==1 && arr[0][0]!="x" && arr[0][0]!="0"){
         arr[0][0]="x";
+        adding0_flag=true;
     }
-    else if(m==2){
+    else if(m==2 && arr[0][1]!="x" &&arr[0][1]!="0"){
         arr[0][1]="x";
+        adding0_flag=true;
     }
-    else if(m==3){
+    else if(m==3 && arr[0][2]!="x" && arr[0][2]!="x"){
         arr[0][2]="x";
+        adding0_flag=true;
     }
-    else if(m==4){
+    else if(m==4 && arr[1][0]!="x" && arr[1][0]!="0"){
         arr[1][0]="x";
+        adding0_flag=true;
     }
-    else if(m==5){
+    else if(m==5 && arr[1][1]!="x" && arr[1][1]!="0"){
         arr[1][1]="x";
+        adding0_flag=true;
     }
-    else if(m==6){
+    else if(m==6 && arr[1][2]!="x" && arr[1][2]!="0"){
         arr[1][2]="x";
+        adding0_flag=true;
     }
-    else if(m==7){
+    else if(m==7 && arr[2][0]!="x" && arr[2][0]!="0"){
         arr[2][0]="x";
+        adding0_flag=true;
     }
-    else if(m==8){
+    else if(m==8 && arr[2][1]!="x" && arr[2][1]!="0"){
         arr[2][1]="x";
+        adding0_flag=true;
     }
-    else if(m==9){
+    else if(m==9 && arr[2][2]!="x" && arr[2][2]!="0"){
         arr[2][2]="x";
+        adding0_flag=true;
     }
 
-    show.innerHTML="computer turn.."
+    if(adding0_flag==true){
+        show.innerHTML="computer turn.."
+    }
+   
+
+    arr_init();
+
+    if(adding0_flag==true){
+    setTimeout(()=>{
+   
+
+    win_loose();
+    if(win==true){
+                show.innerHTML="You Win...";
+                show_style.color="green";
+            }
+            else if(loose==true){
+                show.innerHTML="Computer Win...";
+                show_style.color="red";
+            }
+            else if(draw==true){
+                show.innerHTML="Tic Tok Toe Draw...";
+                show_style.color="blue";
+            }
+    add_zero();
+
+    },"1000")
+}
 
 }
 
 
     // adding x to respected selected box;
 
-    arr_init();
+  
 
     // checking win or loose or draw and adding 0 if nothing
 
 if(win==false && loose==false){
-    setTimeout(()=>{
-
-      win_loose();
-      if(win==true){
-                    show.innerHTML="You Win...";
-                    show_style.color="green";
-                }
-                else if(loose==true){
-                    show.innerHTML="Computer Win...";
-                    show_style.color="red";
-                }
-                else if(draw==true){
-                    show.innerHTML="Tic Tok Toe Draw...";
-                    show_style.color="blue";
-                }
-      add_zero();
-
-    },"1000")
+   
 
 }
 
